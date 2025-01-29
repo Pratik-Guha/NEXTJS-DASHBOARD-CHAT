@@ -11,8 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        border: "hsl(var(--border))",
       },
     },
   },
+  darkMode: ["class"],
   plugins: [],
 } satisfies Config;
