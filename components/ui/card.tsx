@@ -1,14 +1,26 @@
 import type * as React from "react"
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function Card({ className, ...props }: CardProps) {
-  return <div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`} {...props} />
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode
 }
 
-export interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode
+}
 
-export function CardContent({ className, ...props }: CardContentProps) {
-  return <div className={`p-6 pt-0 ${className}`} {...props} />
+export function Card({ className = "", children, ...props }: CardProps) {
+  return (
+    <div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+export function CardContent({ className = "", children, ...props }: CardContentProps) {
+  return (
+    <div className={`p-6 pt-0 ${className}`} {...props}>
+      {children}
+    </div>
+  )
 }
 
